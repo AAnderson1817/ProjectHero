@@ -1,6 +1,8 @@
+<h1>User Registration</h1>
 <%= form_for @user do |u| %>
     <hr>
     User Name: <%= u.text_field :name %><br>
     User Email: <%= u.text_field :email %> <br>
+    User Password: <%= u.password_field :password %> <br>
     <%= u.submit %>
 <% end %>
