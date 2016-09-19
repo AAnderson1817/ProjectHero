@@ -8,10 +8,11 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Goal.new(user_params)
+    @goal = Goal.new(goal_params)
   end
 
   def goals_params
     params_require(:body)
   end
+
 end
