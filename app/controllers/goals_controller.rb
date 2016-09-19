@@ -11,6 +11,9 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
   end
 
+  def delete
+    @goal = Goal.find(params[:id]).destroy
+
   def goals_params
     params_require(:body)
   end

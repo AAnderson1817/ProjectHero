@@ -1,6 +1,3 @@
 <h1>User Index</h1>
-<% @users.each do |u| %>
-    <hr>
-    User Name: <%= @user.name %><br>
-    User Email: <%= @user.email %>
-<% end %>
+<%= User.first.name %> <br>
+<%= User.first.email %>
