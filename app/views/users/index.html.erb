@@ -1,3 +1,6 @@
 <h1>User Index</h1>
-<%= User.first.name %> <br>
-<%= User.first.email %>
+<% @users.each do |q| %>
+<br><hr>
+<%= q.name %>
+<%= q.body %>
+<% end%>
