@@ -1,6 +1,6 @@
-<h1>Goals#index</h1>
-
+<h1>I Have Embraced How Terrible This App Is</h1>
+<h2> Look at all this shit </h2>
 <% @goals.each do |g| %>
 <br><hr>
-<%= g.body %>
+<%= g.id%> <%= g.body %> <%= link_to('x',g, method: :delete)%>
 <% end%>

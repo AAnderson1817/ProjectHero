@@ -14,14 +14,14 @@ class GoalsController < ApplicationController
   def create
     @goal = current_user.goals.new(goal_params)
     if @goal.save
-      redirect_to users_path
+      redirect_to goals_path
     end
   end
-
-  def delete
-    @goal = Goal.find(params[:id]).destroy
-  end
-
+def destroy
+  @goal = Goal.find(params[:id])
+  @goal.destroy
+  redirect_to goals_path
+end
 
 
   def goal_params
