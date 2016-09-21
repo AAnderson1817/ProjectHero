@@ -11,16 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920162314) do
+ActiveRecord::Schema.define(version: 20160920194854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "advices", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "advices", ["goal_id"], name: "index_advices_on_goal_id", using: :btree
 
   create_table "goals", force: :cascade do |t|
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "title"
   end
 
   add_index "goals", ["user_id"], name: "index_goals_on_user_id", using: :btree
@@ -33,5 +43,6 @@ ActiveRecord::Schema.define(version: 20160920162314) do
     t.string   "password_digest"
   end
 
+  add_foreign_key "advices", "goals"
   add_foreign_key "goals", "users"
 end

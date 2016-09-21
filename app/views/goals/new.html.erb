@@ -1,0 +1,6 @@
+<h1>Enter a Goal</h1>
+<%= form_for @goal do |g| %>
+    <hr>
+    Goal: <%= g.text_field :body %><br>
+    <%= g.submit %>
+<% end %>

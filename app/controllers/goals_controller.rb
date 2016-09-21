@@ -9,6 +9,9 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    if @goal.save
+      redirect_to new_session_path
+    end
   end
 
   def delete
@@ -16,6 +19,7 @@ class GoalsController < ApplicationController
   end
 
   def new
+    @goal = Goal.new
   end
 
   def goals_params

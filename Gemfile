@@ -44,3 +44,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+# photo uploads:
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2'
