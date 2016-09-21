@@ -1,2 +1,5 @@
 <h1>Hello <%= @user.name %> </h1>
-<%= @user.goals.first %>
+<% @user.goals.each do |q| %>
+<br><hr>
+<%= q.body %>
+<% end%>

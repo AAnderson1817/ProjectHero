@@ -7,10 +7,14 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
   end
 
+  def new
+    @goal = Goal.new
+  end
+
   def create
-    @goal = Goal.new(goal_params)
+    @goal = current_user.goals.new(goal_params)
     if @goal.save
-      redirect_to new_session_path
+      redirect_to users_path
     end
   end
 
@@ -18,12 +22,10 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id]).destroy
   end
 
-  def new
-    @goal = Goal.new
-  end
 
-  def goals_params
-    params_require(:body)
-  end
+
+  def goal_params
+      params.require(:goal).permit(:title, :body)
+    end
 
 end
