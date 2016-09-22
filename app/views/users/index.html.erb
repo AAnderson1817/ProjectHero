@@ -1,6 +1,5 @@
-<h1>Putting the "M" in MVP</h1>
+<h1>Hall of Heroes</h1>
 <% @users.each do |q| %>
 <br><hr>
-<%= q.name %>
-<%= q.email %>
+<%= q.name %> : <%= q.email %> <%= link_to('x',q, method: :destroy)%>
 <% end%>
