@@ -13,24 +13,25 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Users', users_path %></li>
-        <li><a href="#">Link Two</a></li>
-      </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link Three</a></li>
+      <ul class="nav navbar-nav">
+        <%if logged_in? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigate <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><%= link_to 'Users', users_path %></li>
+            <li><%= link_to 'My Goals', user_path(current_user) %> </li>
+            <li><%= link_to 'Create a Goal', new_goal_path %> </li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <% if logged_in? %>
+            <%= link_to "Logout", logout_path, {method: "DELETE"} %>
+            <% else %>
+                <%= link_to "Login", new_session_path %>
+            <% end %>
           </ul>
         </li>
       </ul>
+          <% end%>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
