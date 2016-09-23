@@ -24,14 +24,15 @@
             <li><%= link_to 'Create a Goal', new_goal_path %> </li>
             <li role="separator" class="divider"></li>
             <% if logged_in? %>
-            <%= link_to "Logout", logout_path, {method: "DELETE"} %>
-            <% else %>
-                <%= link_to "Login", new_session_path %>
+              <%= link_to "Logout", logout_path, {method: "DELETE"} %>
             <% end %>
           </ul>
         </li>
+        <% else %>
+            <li><%= link_to "Login", new_session_path %></li>
+        <% end%>
       </ul>
-          <% end%>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
