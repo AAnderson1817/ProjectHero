@@ -1,12 +1,35 @@
 <h1>Enter a Goal</h1>
 <%= form_for @goal do |g| %>
     <hr>
-    Category: <%= g.select(:category, options_for_select([['Physical', 'Physical'], ['Mental', 'Mental'], ['Spiritual', 'Spiritual'], ['Career', 'Career']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
+
+    <div id="text"> Category: </div><%= g.select(:category, options_for_select([['Physical', 'Physical'], ['Mental', 'Mental'], ['Spiritual', 'Spiritual'], ['Career', 'Career']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
     <br>
-    Time Frame: <%= g.select(:timeframe, options_for_select([['Long', 'Long'], ['Medium', 'Medium'], ['Short', 'Short']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
+    <div id="text">Time Frame: </div><%= g.select(:timeframe, options_for_select([['Long', 'Long'], ['Medium', 'Medium'], ['Short', 'Short']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
     <br>
-    Goal: <%= g.text_field :body, {class: 'form-control'}%>
+    <div id="text">Goal: </div><%= g.text_field :body, {class: 'form-control'}%>
     <br>
 
     <%= g.submit %>
 <% end %>
+
+<style>
+body {
+  background-image: url('<%= asset_path('minimalist.jpg') %>');
+}
+
+h1 {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+h2{
+  font-size: 32px;
+  color: #eaeaea;
+  text-align:center;
+}
+#text {
+  font-size: 18px;
+  color: #d3d3d3;
+  padding-top: 10px;
+}
+</style>

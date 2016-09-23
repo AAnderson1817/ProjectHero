@@ -1,15 +1,37 @@
 <h1>Hello <%= @user.name %> </h1>
+<div id="text">
 <% @user.goals.where(completed: false).each do |g| %>
 <br><hr>
 Category: <%= g.category %> <br>
 Time Frame: <%=g.timeframe%><br>
 <%= g.body %> <%= link_to('Remove',g, method: :delete)%>
-<%= link_to('Done', toggle_goal_path(g), method: :patch) %>
+<%= link_to 'Done', toggle_goal_path(g), method: :patch  %>
 <% end%>
+
 <hr>
+
 <% @user.goals.where(completed: true).each do |g| %>
 <br><hr>
 Category: <%= g.category %> <br>
 Time Frame: <%=g.timeframe%><br>
 <%= g.body %> <%= link_to('Remove',g, method: :delete)%>
+<%= link_to 'Mark Incomplete', toggle_goal_path(g), method: :patch  %>
 <% end%>
+
+</div>
+
+<style>
+body {
+  background-image: url('<%= asset_path('minimalist.jpg') %>');
+}
+h1 {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+#text {
+  font-size: 18px;
+  color: #d3d3d3;
+  padding-top: 10px;
+}
+</style>

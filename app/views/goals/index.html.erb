@@ -1,6 +1,30 @@
 <h1>You've Found A Hidden Cache of Goals!</h1>
 <h2> Wow! Look at all this shit! </h2>
+<div class="col-md-4" id="text">
 <% @goals.each do |g| %>
 <br><hr>
 <%= g.id%> <%= g.body %> <%= link_to('x',g, method: :delete)%>
 <% end%>
+</div>
+
+<style>
+body {
+  background-image: url('<%= asset_path('minimalist.jpg') %>');
+}
+h1 {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+h2 {
+  font-size: 32px;
+  color: #eaeaea;
+  text-align:center;
+}
+#text {
+  text-align:center;
+  font-size: 18px;
+  color: #d3d3d3;
+  padding-top: 10px;
+}
+</style>

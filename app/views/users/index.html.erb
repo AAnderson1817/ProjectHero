@@ -2,7 +2,7 @@
 <% @users.each_slice(3) do |group| %>
 <div class='row'>
 <% group.each do |q|  %>
-<div class='col-md-4'>
+<div class='col-md-4' id="text">
 <%= q.name %>  <%= link_to 'View',user_path(q)%></div>
 <% end %>
 </div>
@@ -10,6 +10,17 @@
 
 <style>
 body {
-  background-image: url('<%= asset_path('valor.jpg') %>');
+  background-image: url('<%= asset_path('minimalist.jpg') %>');
+}
+h1 {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+#text {
+  text-align:center;
+  font-size: 18px;
+  color: #d3d3d3;
+  padding-top: 10px;
 }
 </style>

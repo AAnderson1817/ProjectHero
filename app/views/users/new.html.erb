@@ -1,8 +1,30 @@
 <h1>Goal: Create Account</h1>
+<div id="text">
 <%= form_for @user do |u| %>
     <hr>
-    User Name: <%= u.text_field :name %><br>
-    User Email: <%= u.text_field :email %> <br>
-    User Password: <%= u.password_field :password %> <br>
-    <%= u.submit %>
+    <div id="text">  User Name: </div><%= u.text_field :name %><br>
+      <div id="text">User Email: </div><%= u.text_field :email %> <br>
+      <div id="text">User Password: </div><%= u.password_field :password %></div>
+    <br>
+
+    <div class="col-md-2 col-md-offset-5"><%= u.submit %></div>
 <% end %>
+
+
+
+<style>
+body {
+  background-image: url('<%= asset_path('minimalist.jpg') %>');
+}
+h1 {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
+#text {
+  text-align:center;
+  font-size: 18px;
+  color: #d3d3d3;
+  padding-top: 10px;
+}
+</style>
