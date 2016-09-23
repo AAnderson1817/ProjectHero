@@ -27,6 +27,14 @@ def destroy
   redirect_to user_path(current_user)
 end
 
+  def toggle_status
+    @goal = Goal.find(params[:id])
+    @goal.completed = !@goal.completed
+    if @goal.save
+      redirect_to user_path(current_user)
+    end
+  end
+
 
   def goal_params
       params.require(:goal).permit(:title, :body, :timeframe, :category)

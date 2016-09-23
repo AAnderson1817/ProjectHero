@@ -1,7 +1,15 @@
 <h1>Hello <%= @user.name %> </h1>
-<% @user.goals.each do |q| %>
+<% @user.goals.where(completed: false).each do |g| %>
 <br><hr>
-Category: <%= q.category %> <br>
-Time Frame: <%=q.timeframe%><br>
-<%= q.body %> <%= link_to('Remove',q, method: :delete)%>
+Category: <%= g.category %> <br>
+Time Frame: <%=g.timeframe%><br>
+<%= g.body %> <%= link_to('Remove',g, method: :delete)%>
+<%= link_to('Done', toggle_goal_path(g), method: :patch) %>
+<% end%>
+<hr>
+<% @user.goals.where(completed: true).each do |g| %>
+<br><hr>
+Category: <%= g.category %> <br>
+Time Frame: <%=g.timeframe%><br>
+<%= g.body %> <%= link_to('Remove',g, method: :delete)%>
 <% end%>
