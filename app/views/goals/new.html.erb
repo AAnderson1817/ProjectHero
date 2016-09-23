@@ -1,6 +1,12 @@
 <h1>Enter a Goal</h1>
 <%= form_for @goal do |g| %>
     <hr>
-    Goal: <%= g.text_field :body %><br>
+    Category: <%= g.select(:category, options_for_select([['Physical', 'Physical'], ['Mental', 'Mental'], ['Spiritual', 'Spiritual'], ['Career', 'Career']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
+    <br>
+    Time Frame: <%= g.select(:timeframe, options_for_select([['Long', 'Long'], ['Medium', 'Medium'], ['Short', 'Short']], "in"), {}, {required: 'true', autofocus: 'true', class: 'form-control'})%>
+    <br>
+    Goal: <%= g.text_field :body, {class: 'form-control'}%>
+    <br>
+
     <%= g.submit %>
 <% end %>

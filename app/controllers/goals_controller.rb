@@ -29,7 +29,7 @@ end
 
 
   def goal_params
-      params.require(:goal).permit(:title, :body)
+      params.require(:goal).permit(:title, :body, :timeframe, :category)
     end
 
 end
